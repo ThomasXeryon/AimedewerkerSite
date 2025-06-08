@@ -159,9 +159,7 @@ export default function Landing() {
             </section>
           </ParallaxSection>
 
-          <ParallaxSection speed={0.5}>
-            <ProcessShowcase />
-          </ParallaxSection>
+          <ProcessShowcase />
 
           <ParallaxSection speed={0.3}>
             <section className="py-20 bg-slate-800/50">

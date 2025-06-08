@@ -41,8 +41,8 @@ export default function ProcessShowcase() {
     offset: ["start end", "end start"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.96]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, -60]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.98]);
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.onChange((progress) => {
