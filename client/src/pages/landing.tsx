@@ -7,6 +7,9 @@ import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import LoginForm from "@/components/LoginForm";
 import RegisterForm from "@/components/RegisterForm";
+import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
+import ParallaxSection from "@/components/ParallaxSection";
+import ProcessShowcase from "@/components/ProcessShowcase";
 
 export default function Landing() {
   const [showLogin, setShowLogin] = useState(false);
