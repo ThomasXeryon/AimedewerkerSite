@@ -43,7 +43,7 @@ export default function FeatureCard({ icon, title, description, delay = 0 }: Fea
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.6, delay }}
       whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(139, 92, 246, 0.15)" }}
-      className="bg-slate-800/50 border border-gray-700 rounded-2xl p-8 transition-all duration-300"
+      className="bg-slate-800/50 border border-gray-700 rounded-2xl p-8 transition-all duration-300 hover:bg-slate-800/70"
     >
       <div className="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mb-6">
         {getIcon()}
