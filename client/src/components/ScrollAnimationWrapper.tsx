@@ -45,7 +45,7 @@ export default function ScrollAnimationWrapper({ children }: ScrollAnimationWrap
   }, []);
 
   return (
-    <div ref={containerRef} className="relative overflow-hidden">
+    <div ref={containerRef} className="relative overflow-hidden" style={{ height: '800vh' }}>
       {/* Background layers with parallax */}
       <motion.div 
         className="fixed inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
@@ -58,6 +58,7 @@ export default function ScrollAnimationWrapper({ children }: ScrollAnimationWrap
       >
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-float" />
         <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-3/4 left-1/3 w-48 h-48 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl animate-float" style={{ animationDelay: "4s" }} />
       </motion.div>
 
       {/* Content wrapper */}
