@@ -3,38 +3,34 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(0, 0%, 100%);
-  --foreground: hsl(222.2, 84%, 4.9%);
-  --muted: hsl(210, 40%, 96%);
-  --muted-foreground: hsl(215.4, 16.3%, 46.9%);
-  --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(222.2, 84%, 4.9%);
-  --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(222.2, 84%, 4.9%);
-  --border: hsl(214.3, 31.8%, 91.4%);
-  --input: hsl(214.3, 31.8%, 91.4%);
-  --primary: hsl(221.2, 83.2%, 53.3%);
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(262, 83%, 58%);
   --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(210, 40%, 96%);
-  --secondary-foreground: hsl(222.2, 84%, 4.9%);
-  --accent: hsl(210, 40%, 96%);
-  --accent-foreground: hsl(222.2, 84%, 4.9%);
-  --destructive: hsl(0, 84.2%, 60.2%);
-  --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(221.2, 83.2%, 53.3%);
-  --radius: 0.75rem;
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
   
-  /* Flank.ai inspired colors */
-  --flank-primary: hsl(221.2, 83.2%, 53.3%);
-  --flank-secondary: hsl(212, 95%, 68%);
-  --flank-accent: hsl(202, 100%, 50%);
-  --flank-gray-50: hsl(210, 40%, 98%);
-  --flank-gray-100: hsl(210, 40%, 96%);
-  --flank-gray-200: hsl(214.3, 31.8%, 91.4%);
-  --flank-gray-300: hsl(213, 27%, 84%);
-  --flank-gray-400: hsl(215.4, 16.3%, 46.9%);
-  --flank-gray-500: hsl(220, 14.3%, 95.9%);
-  --flank-gray-900: hsl(222.2, 84%, 4.9%);
+  /* Custom AI Coworker colors */
+  --dark-primary: hsl(240, 14%, 6%);
+  --dark-secondary: hsl(238, 15%, 12%);
+  --dark-card: hsl(240, 12%, 16%);
+  --accent-purple: hsl(262, 83%, 58%);
+  --accent-blue: hsl(217, 91%, 60%);
+  --accent-indigo: hsl(243, 78%, 62%);
 }
 
 .dark {
@@ -76,24 +72,20 @@
 
 @layer utilities {
   .gradient-text {
-    background: linear-gradient(135deg, var(--flank-primary) 0%, var(--flank-secondary) 100%);
+    background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-blue) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
   .gradient-bg {
-    background: linear-gradient(135deg, var(--flank-primary) 0%, var(--flank-secondary) 100%);
+    background: linear-gradient(135deg, var(--accent-indigo) 0%, var(--accent-purple) 50%, var(--accent-blue) 100%);
   }
   
-  .flank-bg {
-    background: var(--flank-gray-50);
-  }
-  
-  .flank-card {
-    background: white;
-    border: 1px solid var(--flank-gray-200);
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  .gradient-border {
+    background: linear-gradient(135deg, var(--accent-indigo), var(--accent-purple), var(--accent-blue));
+    padding: 1px;
+    border-radius: 12px;
   }
   
   .animate-float {
