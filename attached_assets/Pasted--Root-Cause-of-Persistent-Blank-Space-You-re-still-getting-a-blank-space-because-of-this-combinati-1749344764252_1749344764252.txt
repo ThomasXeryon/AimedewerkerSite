@@ -1,0 +1,72 @@
+🧨 Root Cause of Persistent Blank Space
+You’re still getting a blank space because of this combination of issues:
+
+<ProcessShowcase /> is wrapped in a ParallaxSection, which adds transform animation and height effects that conflict with sticky/scroll effects already inside ProcessShowcase.
+
+You likely have scroll transforms (y/scale) applied without ensuring the height is clamped on the outer section, which means the layout collapses or overflows weirdly.
+
+Your ScrollAnimationWrapper is probably using fixed background layers that punch out holes unless they're inside absolute containers.
+
+✅ Final Fix: 3 Hard Edits
+1️⃣ Remove Redundant Wrapper in Landing.tsx
+tsx
+Copy
+Edit
+// ❌ Wrong
+<ParallaxSection speed={0.5}>
+  <ProcessShowcase />
+</ParallaxSection>
+
+// ✅ Correct
+<ProcessShowcase />
+2️⃣ Fix ProcessShowcase.tsx Layout + Transform
+Update your ProcessShowcase.tsx to use this structure exactly:
+
+tsx
+Copy
+Edit
+import { useRef, useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+
+export default function ProcessShowcase() {
+  const ref = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [0, -60]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.98]);
+
+  return (
+    <section className="h-screen overflow-hidden">
+      <div className="sticky top-0 h-screen flex items-center justify-center">
+        <motion.div
+          ref={ref}
+          style={{ y, scale }}
+          className="max-w-4xl w-full p-6 rounded-3xl bg-slate-900 shadow-lg"
+        >
+          {/* 💡 Your card contents */}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+h-screen: makes sure it takes up the right height
+
+sticky top-0 h-screen: pins the element in viewport
+
+motion.div: moves in place without affecting flow
+
+3️⃣ Global CSS Check: overflow
+Make sure you don’t have global layout blockers. In your index.css:
+
+css
+Copy
+Edit
+html, body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+🔥 If you see overflow-hidden anywhere on your outer divs/pages (including <main> or <Layout>), remove it unless you're explicitly managing scroll yourself.
