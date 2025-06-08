@@ -21,8 +21,8 @@ export default function ParallaxSection({
     offset
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, speed * -100]);
-  const smoothY = useSpring(y, { stiffness: 100, damping: 30 });
+  const y = useTransform(scrollYProgress, [0, 1], [0, speed * -400]);
+  const smoothY = useSpring(y, { stiffness: 50, damping: 25 });
 
   return (
     <motion.div

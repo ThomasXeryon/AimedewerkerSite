@@ -34,23 +34,23 @@ const processSteps: ProcessStep[] = [
 
 export default function ProcessShowcase() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(2);
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start center", "end center"]
   });
 
-  const leftY = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  const rightY = useTransform(scrollYProgress, [0, 1], [0, 50]);
-  const cardRotateY = useTransform(scrollYProgress, [0, 0.5, 1], [0, -3, 3]);
-  const cardScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.98, 1, 0.98]);
+  const leftY = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  const rightY = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const cardRotateY = useTransform(scrollYProgress, [0, 0.5, 1], [0, -5, 5]);
+  const cardScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1, 0.95]);
 
   const smoothLeftY = useSpring(leftY, { stiffness: 100, damping: 30 });
   const smoothRightY = useSpring(rightY, { stiffness: 100, damping: 30 });
 
   useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", (progress) => {
+    const unsubscribe = scrollYProgress.onChange((progress) => {
       const stepIndex = Math.floor(progress * processSteps.length);
       setActiveStep(Math.max(0, Math.min(stepIndex, processSteps.length - 1)));
     });
