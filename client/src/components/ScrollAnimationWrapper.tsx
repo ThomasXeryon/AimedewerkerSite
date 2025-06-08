@@ -47,20 +47,18 @@ export default function ScrollAnimationWrapper({ children }: ScrollAnimationWrap
   return (
     <div ref={containerRef} className="relative overflow-hidden">
       {/* Background layers with parallax */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <motion.div 
-          className="w-full h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
-          style={{ y: y1, scale }}
-        />
-        
-        <motion.div 
-          className="absolute inset-0 opacity-20"
-          style={{ y: y2 }}
-        >
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-float" />
-          <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-float" style={{ animationDelay: "2s" }} />
-        </motion.div>
-      </div>
+      <motion.div 
+        className="fixed inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+        style={{ y: y1, scale }}
+      />
+      
+      <motion.div 
+        className="fixed inset-0 opacity-20"
+        style={{ y: y2 }}
+      >
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-float" />
+        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-float" style={{ animationDelay: "2s" }} />
+      </motion.div>
 
       {/* Content wrapper */}
       <motion.div 

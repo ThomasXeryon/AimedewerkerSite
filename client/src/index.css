@@ -68,11 +68,6 @@
   html {
     scroll-behavior: smooth;
   }
-
-  html, body {
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
 }
 
 @layer utilities {
@@ -107,30 +102,6 @@
   
   .animate-scale-in {
     animation: scaleIn 0.5s ease-out forwards;
-  }
-
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: rgb(30, 41, 59);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, rgb(139, 92, 246), rgb(59, 130, 246));
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, rgb(124, 58, 237), rgb(37, 99, 235));
-  }
-
-  /* Parallax container */
-  .parallax-container {
-    position: relative;
-    overflow-x: hidden;
   }
 }
 
