@@ -1,0 +1,70 @@
+OBJECTIVE:
+Build a modern SaaS landing page and login/register pages for my app “AI Coworker” — an AI assistant for professionals. Replicate the visual and interaction design of https://www.flank.ai/, focusing on clean layout, advanced polish, high responsiveness, and smooth animation.
+
+VISUAL STYLE:
+- Color palette: Light background with gray tones, blue/green accents
+- Typography: Inter or similar sans-serif, large bold headlines, clear body text
+- Layout: Wide containers with maximum whitespace, consistent vertical spacing
+- Component style: Rounded corners (2xl), subtle shadows, crisp padding, responsive grid layout
+
+TECH STACK:
+- React with Tailwind CSS
+- shadcn/ui for consistent and styled components
+- Framer Motion for smooth animations and transitions
+- Fully responsive using Tailwind breakpoints (sm, md, lg, xl, 2xl)
+- Animate on scroll using Framer Motion and IntersectionObserver via `useInView`
+
+SITE STRUCTURE:
+Pages:
+- `/`: Marketing landing page
+- `/login`: Login form
+- `/register`: Registration form
+- `/dashboard`: Placeholder for future SaaS interface
+
+Landing Page Sections (in order):
+1. Sticky navigation bar with logo and buttons ("Login", "Try AI Coworker")
+2. Hero section:
+   - Title and subheading on the left
+   - Call-to-action button
+   - Animated graphic or Lottie visual on the right with entrance animation
+3. Features section:
+   - 3 or 4 cards in a responsive grid or scrollable row
+   - Staggered animations as each card comes into view
+4. Problem/Solution explanation with alternating text/image sections
+5. Use case switcher or tabbed section for industries (e.g. legal, sales, support)
+6. Testimonial section with horizontally scrollable or auto-rotating text quotes
+7. Pricing section:
+   - 3-tier comparison layout with hover effects and call-to-action buttons
+8. Footer:
+   - Newsletter/email capture
+   - Text-only navigation links (no icons required)
+   - Terms, privacy policy links
+
+UX AND ANIMATION DETAILS:
+- Navbar changes background and shadow after scrolling past the hero
+- Smooth scroll animations via Framer Motion (fade-in, y-position entrance)
+- Buttons have hover scale and color transition
+- Feature cards animate on scroll with `opacity: 0 → 1`, `y: 20 → 0`
+- Responsive layout must adapt down to mobile screens
+- Mobile nav uses a toggle menu or drawer (text-based, no icons required)
+
+COMPONENTS TO BUILD:
+- Navbar.tsx
+- HeroSection.tsx
+- FeatureCard.tsx
+- PricingSection.tsx
+- Testimonials.tsx
+- Footer.tsx
+- LoginForm.tsx
+- RegisterForm.tsx
+
+CONTENT:
+Use placeholders like:
+- "AI Coworker helps professionals automate tasks, summarize meetings, and follow up on emails."
+- Dummy features and plans: Free, Pro, Enterprise
+- Testimonials and pricing can be lorem ipsum or fake until real content is provided
+
+DEPLOYMENT:
+Ensure the result is optimized for Vercel deployment. Focus on fast load performance, minimal hydration delay, and production-grade animation smoothness.
+
+Start by scaffolding the Tailwind + React project with file structure, basic routing, and the top-level layout wrapper.
